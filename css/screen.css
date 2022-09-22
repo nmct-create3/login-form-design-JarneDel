@@ -497,9 +497,25 @@ a:focus {
     Class to put on all input="text" like form inputs
 */
 
-.c-input {}
+.c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #e2e3e7;
+    width: 100%;
+    border-radius: 3px;
+    font-family: inherit;
+    color: var(--global-text-color);
+    /* height: 3rem; */
+    /* replaces height */
+    padding: 11px 16px;
+    line-height: 24px;
+    outline: none;
+}
 
-.c-input:focus {}
+.c-input:focus {
+    border-color: 0 0 0 3px #4f95ff;
+}
 
 /*
     Component: Label
