@@ -169,6 +169,12 @@ hr {
     margin: 0 0 24px;
 }
 
+label,
+input {
+    display: block;
+}
+
+
 a {
     color: var(--global-link-color);
     transition: all .1s ease-in-out;
@@ -444,7 +450,29 @@ a:focus {
     Component: Logo
     ---
     Website main logo
+
 */
+.c-logo {
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.c-logo__svg {
+    height: 100%;
+}
+
+.c-logo__path-1 {
+    fill: var(--global-text-color);
+}
+
+.c-logo__path-2 {
+    fill: #3385FF;
+}
+
+.c-logo__path-3 {
+    fill: #1b4186;
+}
 
 /*
     Component: Card
@@ -456,7 +484,12 @@ a:focus {
     Component: Forms
     ---
     Everything form related here
+
 */
+.c-form-field__options {
+    display: flex;
+    gap: 8px;
+}
 
 /*
     Component: Input
