@@ -2,14 +2,14 @@
 #FONTS
 \*------------------------------------*/
 @font-face {
-    font-family: "inter web";
-    src: url("../fonts/Inter-Regular.woff2") format('wwof2');
+    font-family: "Inter Web";
+    src: url("../fonts/Inter-Regular.woff2") format('woff2');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: "inter web";
-    src: url("../fonts/Inter-SemiBold.woff2") format('wwof2');
+    font-family: "Inter Web";
+    src: url("../fonts/Inter-SemiBold.woff2") format('woff2');
     font-weight: 700;
 }
 
@@ -42,7 +42,7 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "inter web", Helvetica, arial, sans-serif;
+    font-family: "Inter Web", Helvetica, arial, sans-serif;
     color: var(--global-text-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
