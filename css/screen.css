@@ -6,7 +6,15 @@
 #Variables
 \*------------------------------------*/
 
-:root {}
+:root {
+    --global-text-color: #20223a;
+    --global-bg-color: #F5F6FA;
+    --global-bg-selection-color: #3385FF;
+    --global-link-color: #3385FF;
+    --global-hover-color: #2E77E6;
+    --global-active-color: #2E77E6;
+    --global-focussed-color: #3385FF;
+}
 
 /* CSS variables here */
 
@@ -24,11 +32,11 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: Helvetica, arial, sans-serif;
-    color: grey;
+    color: var(--global-text-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: var(--global-bg-color);
 }
 
 *,
@@ -44,14 +52,9 @@ html {
 * Customize the background color to match your design.
 */
 
-::-moz-selection {
-    background: HotPink;
-    color: white;
-    text-shadow: none;
-}
 
 ::selection {
-    background: HotPink;
+    background: var(--global-bg-selection-color);
     color: white;
     text-shadow: none;
 }
@@ -156,18 +159,18 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: var(--global-link-color);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: HotPink;
+    color: var(--global-active-color);
 }
 
 a:hover,
 a:focus {
-    color: DeepPink;
+    color: var(--global-hover-color);
 }
 
 /*------------------------------------*\
