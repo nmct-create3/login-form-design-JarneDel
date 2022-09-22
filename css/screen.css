@@ -18,13 +18,20 @@
 \*------------------------------------*/
 
 :root {
+
     --global-text-color: #20223a;
     --global-bg-color: #F5F6FA;
-    --global-bg-selection-color: #3385FF;
-    --global-link-color: #3385FF;
-    --global-hover-color: #2E77E6;
-    --global-active-color: #2E77E6;
-    --global-focussed-color: #3385FF;
+    --global-color-alpha-light: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-color-transparent: #4f95ff4d;
+    --global-input-outline: 0 0 0 3px var(--global-color-transparent);
+    --global-baseline: 8px;
+    --global-whitespace: calc(var(--global-baseline)*3);
+    --global-whitespace-xl: calc(var(--global-whitespace)*2);
+    --global-border-width: 1px;
+    --global-padding-box-height: calc(calc(var(--global-baseline)*2) - var(--global-border-width));
+    accent-color: var(--global-color-alpha);
 }
 
 /* CSS variables here */
@@ -41,7 +48,7 @@
 
 html {
     font-size: 16px;
-    line-height: 1.5;
+    line-height: calc(var(--global-baseline)*3);
     font-family: "Inter Web", Helvetica, arial, sans-serif;
     color: var(--global-text-color);
     box-sizing: border-box;
@@ -65,7 +72,7 @@ html {
 
 
 ::selection {
-    background: var(--global-bg-selection-color);
+    background: var(--global-color-alpha);
     color: white;
     text-shadow: none;
 }
@@ -99,28 +106,28 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline)*6);
+    margin: 0 0 var(--global-whitespace);
 }
 
 h2 {
     font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline)*5);
+    margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline)*4);
+    margin: 0 0 var(--global-whitespace);
 }
 
 h4,
 h5,
 h6 {
     font-size: 20px;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline)*3);
+    margin: 0 0 var(--global-whitespace);
 }
 
 p,
@@ -130,12 +137,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace);
 }
 
 li ul,
@@ -146,8 +153,8 @@ li ol {
 blockquote {
     font-style: normal;
     font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline)*4);
+    margin: 0 0 var(--global-whitespace);
 }
 
 blockquote * {
@@ -158,15 +165,15 @@ blockquote * {
 figcaption {
     font-weight: 400;
     font-size: 12px;
-    line-height: 16px;
-    margin-top: 8px;
+    line-height: calc(var(--global-baseline)*2);
+    margin-top: var(--global-baseline);
 }
 
 hr {
     border: 0;
     height: 1px;
     background: LightGrey;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace);
 }
 
 label,
@@ -176,18 +183,18 @@ input {
 
 
 a {
-    color: var(--global-link-color);
+    color: var(--global-color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: var(--global-active-color);
+    color: var(--global-color-alpha-dark);
 }
 
 a:hover,
 a:focus {
-    color: var(--global-hover-color);
+    color: var(--global-color-alpha-dark);
 }
 
 /*------------------------------------*\
@@ -202,29 +209,33 @@ a:focus {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
 .o-row--login {
     /* stuff here to align the card */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
 }
 
 /* size modifiers */
 
 .o-row--lg {
-    padding-top: 48px;
-    padding-bottom: 24px;
+    padding-top: var(--global-whitespace-xl);
+    padding-bottom: var(--global-whitespace);
 }
 
 .o-row--xl {
     padding-top: 72px;
-    padding-bottom: 48px;
+    padding-bottom: var(--global-whitespace-xl);
 }
 
 @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: var(--global-whitespace-xl);
+        padding-right: var(--global-whitespace-xl);
     }
 }
 
@@ -260,14 +271,14 @@ a:focus {
 }
 
 .o-section+.o-section {
-    padding-top: 24px;
+    padding-top: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
 
     .o-section--lg+.o-section--lg,
     .o-section--xl+.o-section--xl {
-        padding-top: 48px;
+        padding-top: var(--global-whitespace-xl);
     }
 }
 
@@ -315,19 +326,19 @@ a:focus {
 }
 
 .o-layout--gutter-lg {
-    margin: 0 -24px;
+    margin: 0 -var(--global-whitespace);
 }
 
 .o-layout--gutter-lg>.o-layout__item {
-    padding: 0 24px;
+    padding: 0 var(--global-whitespace);
 }
 
 .o-layout--gutter-xl {
-    margin: 0 -48px;
+    margin: 0 -var(--global-whitespace-xl);
 }
 
 .o-layout--gutter-xl>.o-layout__item {
-    padding: 0 48px;
+    padding: 0 var(--global-whitespace-xl);
 }
 
 /* reverse horizontal row modifier */
@@ -467,7 +478,7 @@ a:focus {
 }
 
 .c-logo__path-2 {
-    fill: #3385FF;
+    fill: var(--global-color-alpha);
 }
 
 .c-logo__path-3 {
@@ -488,7 +499,7 @@ a:focus {
 */
 .c-form-field__options {
     display: flex;
-    gap: 8px;
+    gap: var(--global-baseline);
 }
 
 /*
@@ -501,20 +512,22 @@ a:focus {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 1px solid #e2e3e7;
+    border: var(--global-border-width) solid #e2e3e7;
     width: 100%;
     border-radius: 3px;
     font-family: inherit;
     color: var(--global-text-color);
     /* height: 3rem; */
     /* replaces height */
-    padding: 11px 16px;
-    line-height: 24px;
+    padding: var(--global-padding-box-height) 16px;
+    line-height: calc(var(--global-baseline)*3);
     outline: none;
 }
 
 .c-input:focus {
-    border-color: 0 0 0 3px #4f95ff;
+    border-color: var(--global-color-alpha-light);
+    /* Spread 3 px */
+    box-shadow: var(--global-input-outline);
 }
 
 /*
@@ -523,7 +536,17 @@ a:focus {
     Class to put on all form labels
 */
 
-.c-label {}
+.c-label {
+    font-size: 14px;
+    line-height: calc(var(--global-baseline)*2);
+    margin-bottom: var(--global-baseline);
+    color: #606274;
+}
+
+.c-label--option {
+    margin-bottom: 0px;
+}
+
 
 /* If a input is focused within the form-field class change te color of the label */
 
@@ -535,15 +558,74 @@ a:focus {
     Class to put on form buttons or links
 */
 
-.c-button {}
+.c-button {
+    color: #ffffff;
+    width: 100%;
+    background-color: var(--global-color-alpha);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: calc(var(--global-baseline)*3);
+    padding: var(--global-padding-box-height) 16px;
+    border: var(--global-border-width) solid --global-color-alpha-dark;
+    border-radius: 3px;
+    outline: none;
+    transition: all .1s ease;
+}
 
-.c-button:hover {}
+.c-button:hover {
+    background-color: var(--global-color-alpha-dark);
+}
 
-.c-button:focus {}
+.c-button:focus {
+    background-color: var(--global-color-alpha);
+    box-shadow: var(--global-input-outline);
+}
 
-.c-button:active {}
+.c-button:active {
+    background-color: var(--global-color-alpha-dark);
+    box-shadow: none;
+
+}
 
 .c-button--block {}
+
+/* 
+    Components: Card
+    ---
+    card component class
+ */
+
+.c-card {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+}
+
+.c-card__body {
+    padding: 0 3rem 1.5rem 3rem;
+}
+
+.c-card__footer {
+    border-top: 1px solid #E2E3E7;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 3rem 0;
+    color: #757787;
+}
+
+.c-card__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 3rem 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: calc(var(--global-baseline)*3);
+}
+
+
+
 
 /*------------------------------------*\
 #UTILITIES
@@ -569,6 +651,12 @@ a:focus {
     Utility classes to put specific margins and paddings onto elements
 */
 
+.u-centered {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .u-pt-clear {
     padding-top: 0 !important;
 }
@@ -582,7 +670,7 @@ a:focus {
 }
 
 .u-mb-sm {
-    margin-bottom: 8px !important;
+    margin-bottom: var(--global-baseline) !important;
 }
 
 .u-mb-md {
@@ -594,7 +682,7 @@ a:focus {
 }
 
 .u-mb-xl {
-    margin-bottom: 48px !important;
+    margin-bottom: var(--global-whitespace-xl) !important;
 }
 
 /*
