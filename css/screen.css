@@ -30,7 +30,7 @@
     --global-whitespace: calc(var(--global-baseline)*3);
     --global-whitespace-xl: calc(var(--global-whitespace)*2);
     --global-border-width: 1px;
-    --global-padding-box-height: calc(calc(var(--global-baseline)*2) - var(--global-border-width));
+    --global-padding-box-height: calc(calc(var(--global-baseline)*1.5) - var(--global-border-width));
     accent-color: var(--global-color-alpha);
 }
 
